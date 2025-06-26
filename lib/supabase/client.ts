@@ -1,7 +1,2 @@
-import { createBrowserClient } from "@supabase/ssr"
-
-export const createClient = () =>
-  createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
+// Supabase 비활성화 (임시 대체)
+const supabase = null; // 또는 빈 객체
