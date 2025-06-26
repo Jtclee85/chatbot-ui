@@ -10,8 +10,6 @@ import {
   fetchHostedModels,
   fetchOpenRouterModels
 } from "@/lib/models/fetch-models"
-import { supabase } from "@/lib/supabase/browser-client"
-import { TablesUpdate } from "@/supabase/types"
 import { useRouter } from "next/navigation"
 import { useContext, useEffect, useState } from "react"
 import { APIStep } from "../../../components/setup/api-step"
@@ -63,8 +61,6 @@ export default function SetupPage() {
 
   useEffect(() => {
     ;(async () => {
-      const session = (await supabase.auth.getSession()).data.session
-
       if (!session) {
         return router.push("/login")
       } else {
@@ -112,7 +108,6 @@ export default function SetupPage() {
   }
 
   const handleSaveSetupSetting = async () => {
-    const session = (await supabase.auth.getSession()).data.session
     if (!session) {
       return router.push("/login")
     }
